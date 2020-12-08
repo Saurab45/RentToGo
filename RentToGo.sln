@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30709.132
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentToGo", "RentToGo\RentToGo.csproj", "{D9B1D4F2-57BE-4695-AC2D-98C0A84D27BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9B1D4F2-57BE-4695-AC2D-98C0A84D27BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9B1D4F2-57BE-4695-AC2D-98C0A84D27BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9B1D4F2-57BE-4695-AC2D-98C0A84D27BB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D9B1D4F2-57BE-4695-AC2D-98C0A84D27BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9B1D4F2-57BE-4695-AC2D-98C0A84D27BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9B1D4F2-57BE-4695-AC2D-98C0A84D27BB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {360238ED-1A93-4BE3-BBB3-674028C7570E}
+	EndGlobalSection
+EndGlobal
