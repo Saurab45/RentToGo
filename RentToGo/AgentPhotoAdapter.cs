@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Android.Support.V7.Widget;
+using Android.Support.V7.RecyclerView;
 
 namespace RentToGo
 {
