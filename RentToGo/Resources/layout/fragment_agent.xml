@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<ImageView
+        android:layout_alignParentTop="true"
+        android:id="@+id/imgMapFrag"
+        android:scaleType="centerCrop"
+        android:layout_height="150dp"
+        android:layout_width="match_parent"
+        android:adjustViewBounds="true"/>
+    <FrameLayout
+        android:id="@+id/mapFrgContainer"
+        android:layout_below="@id/imgMapFrag"
+        android:layout_above="@+id/btnShare"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+      
+      <Button
+            android:id="@+id/btnShare"
+            android:text="Share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnSMS"
+            android:text="SMS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</RelativeLayout>
