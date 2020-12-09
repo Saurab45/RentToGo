@@ -15,20 +15,13 @@ namespace RentToGo
     public class AgentViewHolder: RecyclerView.ViewHolder
     {
         public ImageView image { get; set; }
-        public TextView id  { get; set; }
-        public TextView agentName  { get; set; }
-        public TextView email { get; set; }
-        public TextView phoneNumber  { get; set; }
-        public TextView officeLocation  { get; set; }
-
+        public TextView heading { get; set; }
+        public TextView description { get; set; }
         public PhotoViewHolder(View itemview, Action<int> listener) : base(itemview)
         {
             image = itemview.FindViewById<ImageView>(Resource.Id.imgRecycler);
-            id = itemview.FindViewById<TextView>(Resource.Id.tvid);
-             agentName = itemview.FindViewById<TextView>(Resource.Id.tvagentName);
-             email = itemview.FindViewById<TextView>(Resource.Id.tvemail);
-             phoneNumber = itemview.FindViewById<TextView>(Resource.Id.tvphoneNumber);
-             officeLocation = itemview.FindViewById<TextView>(Resource.Id.tvofficeLocation);
+            heading = itemview.FindViewById<TextView>(Resource.Id.tvHeading);
+            description = itemview.FindViewById<TextView>(Resource.Id.tvDescription);
             itemview.Click += (sender, e) => listener(Position);
         }
 

@@ -17,19 +17,17 @@ namespace RentToGo
         class Data
         {
             public int id { get; set; }
-            public string agentName { get; set; }
-            public string email { get; set; }
-            public int phoneNumber { get; set; }
-            public string officeLocation { get; set; }
+            public string heading { get; set; }
+            public string description { get; set; }
 
-            public Data(string a, string e, string o)
+            public Data(string h, string d)
             {
-                agentName = a;
-                email = e;
-                officeLocation = o;
+                heading = h;
+                description = d;
             }
+        }
 
-            class PhotoAdapter : RecyclerView.Adapter
+        class PhotoAdapter : RecyclerView.Adapter
             {
                 List<Data> dataList = new List<Data>();
                 public event EventHandler<int> ItemClick;
