@@ -1,74 +1,69 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.OS;
+using System;
+using Android.App;
+using Android.OS;
 using Android.Runtime;
+using Android.Support.Design.Widget;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Newtonsoft.Json;
-using Android.Util;
-using Android.Support.V7.Widget;
+using AlertDialog = Android.App.AlertDialog;
+
+
+using Android.Content;
+
+
 
 namespace RentToGo
 {
-    class HomeActivity:Activity
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar")]
+    public class HomeActivity : AppCompatActivity
     {
 
-        RecyclerView mRecycleView;
-        RecyclerView.LayoutManager mLayoutManager;
-        Housephoto mPhotoAlbum;
-        HouseAdapter mAdapter;
-        List<HouseData> dList = new List<HouseData>();
-    }
-    public bool IsPlayServicesAvailable()
-    {
-        int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
-        if (resultCode != ConnectionResult.Success)
+
+        protected override void OnCreate(Bundle savedInstanceState)
         {
-            if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
-                Log.Debug(TAG, GoogleApiAvailability.Instance.GetErrorString(resultCode));
-            else
-            {
-                Log.Debug(TAG, "This device is not supported");
-                Finish();
-            }
-            return false;
+            base.OnCreate(savedInstanceState);
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            SetContentView(Resource.Layout.activity_main);
+
+            Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+
+
         }
 
-        Log.Debug(TAG, "Google Play Services is available.");
-        return true;
-    }
-    protected override void OnCreate(Bundle savedInstanceState)
-    {
-        base.OnCreate(savedInstanceState);
-        SetContentView(Resource.Layout.activity_home);
 
-        if (Intent.Extras != null)
+
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            foreach (var key in Intent.Extras.KeySet())
+            int id = item.ItemId;
+            if (id == Resource.Id.action_settings)
             {
-                if (key != null)
-                {
-                    var value = Intent.Extras.GetString(key);
-                    Log.Debug(TAG, "Key: {0} Value: {1}", key, value);
-                }
+
+                Intent NewActivity = new Intent(this, typeof(ProfileActivity));
+
+                StartActivity(NewActivity);
+
+                return true;
             }
+
+            return base.OnOptionsItemSelected(item);
         }
 
-        IsPlayServicesAvailable();
-        CreateNotificationChannel();
 
-        mPhotoAlbum = new PhotoAlbum();
-        putData();
-        mLayoutManager = new LinearLayoutManager(this);
 
-        mAdapter = new PhotoAdapter(mPhotoAlbum, dList);
-        mAdapter.ItemClick += MAdapter_ItemClick;
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        mRecycleView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
-        mRecycleView.SetLayoutManager(mLayoutManager);
-        mRecycleView.SetAdapter(mAdapter);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+
     }
+
+}

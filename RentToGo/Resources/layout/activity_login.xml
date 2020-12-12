@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_launcher">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutlauncher1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:weightSum="10">
+
+        <TextView
+            android:id="@+id/tcUserNamePrompt"
+            
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Enter Username"
+            android:layout_marginHorizontal="10dp"
+            android:padding="5dp"
+            android:layout_weight="5"/>
+
+        <EditText
+            android:id="@+id/edUserName"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tcUserNamePrompt"
+            android:layout_marginHorizontal="10dp"
+            android:padding="5dp"
+            android:layout_weight="5"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutlauncher2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:weightSum="10"
+        android:layout_below="@id/linearLayoutlauncher1">
+
+        <TextView
+            android:id="@+id/tcPasswordPrompt"
+            
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Enter Password"
+            android:layout_marginHorizontal="10dp"
+            android:padding="5dp"
+            android:layout_weight="5"/>
+
+        <EditText
+            android:id="@+id/edPassword"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tcPasswordPrompt"
+            android:layout_marginHorizontal="10dp"
+            android:padding="5dp"
+            android:layout_weight="5"/>
+
+    </LinearLayout>
+
+
+
+
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:text="Login"
+        android:layout_below="@id/linearLayoutlauncher2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:text="Register"
+        android:layout_below="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
