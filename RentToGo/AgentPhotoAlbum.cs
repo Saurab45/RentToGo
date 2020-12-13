@@ -4,10 +4,10 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Android.Support.V7.Widget;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System;
 
 namespace RentToGo
 {
@@ -21,7 +21,7 @@ namespace RentToGo
             
         };
         private int[] photos;
-        public PhotoAlbum()
+        public AgentPhotoAlbum()
         {
             this.photos = listPhoto;
         }

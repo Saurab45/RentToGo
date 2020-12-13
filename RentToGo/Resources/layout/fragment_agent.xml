@@ -23,7 +23,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true">
-      
+
+          <Button
+            android:id="@+id/btnShowOfficeLoc"
+            android:text="@string/btnShowOfficeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>   
+        
       <Button
             android:id="@+id/btnShare"
             android:text="Share"
