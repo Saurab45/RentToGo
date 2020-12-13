@@ -18,37 +18,41 @@ namespace RentToGo
         public int id { get; set; }
         public string heading { get; set; }
         public string detail { get; set; }
+        public int rent { get; set; }
 
-        public string bedroom { get; set; }
-        public HouseData(string h, string d,string n)
+        public int bathroom { get; set; }
+        public int bedroom { get; set; }
+        public HouseData(string h, string d,int b,int r , int s)
         {
             heading = h;
             detail = d;
-            bedroom = n;
+            bedroom = b;
+            rent = r;
+            bathroom = s;
         }
     }
     class HouseAdapter : RecyclerView.Adapter
     {
-        List<HouseData> dataList = new List<HouseData>();
+        List<HouseData> houseList = new List<HouseData>();
         public event EventHandler<int> ItemClick;
 
         public Housephoto mPhotoAlbum;
         public HouseAdapter(Housephoto houseAlbum, List<HouseData> list)
         {
             mPhotoAlbum = houseAlbum;
-            dataList = list;
+            houseList = list;
         }
 
         public override int ItemCount
         {
-            get { return dataList.Count(); }
+            get { return houseList.Count(); }
         }
         public override void OnBindViewHolder(RecyclerView.ViewHolder hold, int position)
         {
             HouseViewHolde vh = hold as HouseViewHolde;
             vh.image.SetImageResource(mPhotoAlbum[position]);
-            vh.heading.Text = dataList[position].heading;
-            vh.detail.Text = dataList[position].detail;
+            vh.heading.Text = houseList[position].heading;
+            vh.detail.Text = houseList[position].detail;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
