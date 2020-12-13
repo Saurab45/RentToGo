@@ -8,12 +8,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using AlertDialog = Android.App.AlertDialog;
-using Android.Content;
-
-
-
 using Android.Support.V7.Widget;
-
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
