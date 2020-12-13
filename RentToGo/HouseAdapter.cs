@@ -4,12 +4,11 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Android.Support.V7.Widget;
-using Android.Support.V7.RecyclerView;
+
 
 namespace RentToGo
 {
@@ -18,43 +17,47 @@ namespace RentToGo
         public int id { get; set; }
         public string heading { get; set; }
         public string detail { get; set; }
+        public int rent { get; set; }
 
+        public int bathroom { get; set; }
         public int bedroom { get; set; }
-        public HouseData(string h, string d,int n)
+        public HouseData(string h, string d,int b,int r , int s)
         {
             heading = h;
             detail = d;
-            bedroom = n;
+            bedroom = b;
+            rent = r;
+            bathroom = s;
         }
     }
     class HouseAdapter : RecyclerView.Adapter
     {
-        List<Data> dataList = new List<Data>();
+        List<HouseData> houseList = new List<HouseData>();
         public event EventHandler<int> ItemClick;
 
-        public PhotoAlbum mPhotoAlbum;
-        public PhotoAdapter(PhotoAlbum photoAlbum, List<Data> list)
+        public Housephoto mPhotoAlbum;
+        public HouseAdapter(Housephoto houseAlbum, List<HouseData> list)
         {
-            mPhotoAlbum = photoAlbum;
-            dataList = list;
+            mPhotoAlbum = houseAlbum;
+            houseList = list;
         }
 
         public override int ItemCount
         {
-            get { return dataList.Count(); }
+            get { return houseList.Count(); }
         }
-        public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
+        public override void OnBindViewHolder(RecyclerView.ViewHolder hold, int position)
         {
-            PhotoViewHolder vh = holder as PhotoViewHolder;
+            HouseViewHolde vh = hold as HouseViewHolde;
             vh.image.SetImageResource(mPhotoAlbum[position]);
-            vh.heading.Text = dataList[position].heading;
-            vh.description.Text = dataList[position].description;
+            vh.heading.Text = houseList[position].heading;
+            vh.detail.Text = houseList[position].detail;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.content_recycler, parent, false);
-            PhotoViewHolder vh = new PhotoViewHolder(itemView, OnClick);
+            View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.House_recycler, parent, false);
+            HouseViewHolde vh = new HouseViewHolde(itemView, OnClick);
             return vh;
         }
         private void OnClick(int obj)

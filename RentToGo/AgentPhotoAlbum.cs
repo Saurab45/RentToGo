@@ -4,31 +4,28 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Android.Support.V7.Widget;
-
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System;
 
 namespace RentToGo
 {
-    class Housephoto
+    class AgentPhotoAlbum
     {
-        static int[] listhousePhoto =
+        static int[] listPhoto =
             {
-            Resource.Drawable.house1,
-            Resource.Drawable.house2,
-            Resource.Drawable.house3,
-            Resource.Drawable.house4
+            Resource.Drawable.agent1,
+            Resource.Drawable.agent2,
+            Resource.Drawable.agent3,
+            
         };
-
         private int[] photos;
-        public Housephoto()
+        public AgentPhotoAlbum()
         {
-            this.photos = listhousePhoto;
+            this.photos = listPhoto;
         }
-
-        public int numhousePhoto
+        public int numPhoto
         {
             get
             {
