@@ -11,10 +11,11 @@ using System.Text;
 using Newtonsoft.Json;
 using Android.Util;
 using Android.Support.V7.Widget;
+using Android.Gms.Common;
 
 namespace RentToGo
 {
-    class HomeActivity:Activity
+    class HomeActivity : Activity
     {
 
         RecyclerView mRecycleView;
@@ -22,53 +23,55 @@ namespace RentToGo
         Housephoto mPhotoAlbum;
         HouseAdapter mAdapter;
         List<HouseData> dList = new List<HouseData>();
-    }
-    public bool IsPlayServicesAvailable()
-    {
-        int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
-        if (resultCode != ConnectionResult.Success)
-        {
-            if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
-                Log.Debug(TAG, GoogleApiAvailability.Instance.GetErrorString(resultCode));
-            else
-            {
-                Log.Debug(TAG, "This device is not supported");
-                Finish();
-            }
-            return false;
-        }
 
-        Log.Debug(TAG, "Google Play Services is available.");
-        return true;
-    }
-    protected override void OnCreate(Bundle savedInstanceState)
-    {
-        base.OnCreate(savedInstanceState);
-        SetContentView(Resource.Layout.activity_home);
-
-        if (Intent.Extras != null)
+        string TAG = "RentToGo";
+        public bool IsPlayServicesAvailable()
         {
-            foreach (var key in Intent.Extras.KeySet())
+            int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
+            if (resultCode != ConnectionResult.Success)
             {
-                if (key != null)
+                if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
+                    Log.Debug(TAG, GoogleApiAvailability.Instance.GetErrorString(resultCode));
+                else
                 {
-                    var value = Intent.Extras.GetString(key);
-                    Log.Debug(TAG, "Key: {0} Value: {1}", key, value);
+                    Log.Debug(TAG, "This device is not supported");
+                    Finish();
+                }
+                return false;
+            }
+
+            Log.Debug(TAG, "Google Play Services is available.");
+            return true;
+        }
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.activity_home);
+
+            if (Intent.Extras != null)
+            {
+                foreach (var key in Intent.Extras.KeySet())
+                {
+                    if (key != null)
+                    {
+                        var value = Intent.Extras.GetString(key);
+                        Log.Debug(TAG, "Key: {0} Value: {1}", key, value);
+                    }
                 }
             }
+
+            IsPlayServicesAvailable();
+            CreateNotificationChannel();
+
+            mPhotoAlbum = new PhotoAlbum();
+            putData();
+            mLayoutManager = new LinearLayoutManager(this);
+
+            mAdapter = new PhotoAdapter(mPhotoAlbum, dList);
+            mAdapter.ItemClick += MAdapter_ItemClick;
+
+            mRecycleView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
+            mRecycleView.SetLayoutManager(mLayoutManager);
+            mRecycleView.SetAdapter(mAdapter);
         }
-
-        IsPlayServicesAvailable();
-        CreateNotificationChannel();
-
-        mPhotoAlbum = new PhotoAlbum();
-        putData();
-        mLayoutManager = new LinearLayoutManager(this);
-
-        mAdapter = new PhotoAdapter(mPhotoAlbum, dList);
-        mAdapter.ItemClick += MAdapter_ItemClick;
-
-        mRecycleView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
-        mRecycleView.SetLayoutManager(mLayoutManager);
-        mRecycleView.SetAdapter(mAdapter);
     }
