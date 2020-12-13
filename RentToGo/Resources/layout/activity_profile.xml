@@ -4,4 +4,171 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_margin="10dp"
+android:orientation="vertical">
+
+
+<TextView
+android:id="@+id/UserName"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="UserName"/>
+<EditText
+android:id="@+id/username"
+android:layout_width="match_parent"
+android:layout_height="45dp"
+android:padding="10dp"
+/>
+
+
+<TextView
+android:id="@+id/textPassword"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Password"/>
+
+
+<EditText
+android:id="@+id/password"
+android:layout_width="match_parent"
+android:layout_height="45dp"
+android:padding="10dp"
+android:inputType="textPassword"/>
+
+
+
+<TextView
+android:id="@+id/textEmail"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Email"/>
+
+
+<EditText
+android:id="@+id/email"
+android:layout_width="match_parent"
+android:layout_height="45dp"
+android:padding="10dp"
+/>
+
+
+
+<TextView
+android:id="@+id/textfirstName"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="First Name"/>
+<EditText
+android:id="@+id/firstname"
+android:layout_width="match_parent"
+android:layout_height="45dp"
+android:padding="10dp"
+/>
+
+<TextView
+android:id="@+id/textlastName"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Last Name"/>
+<EditText
+android:id="@+id/lastname"
+android:layout_width="match_parent"
+android:layout_height="45dp"
+android:padding="10dp"
+/>
+
+<TextView
+android:id="@+id/textNumber"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Phone Number"/>
+<EditText
+android:id="@+id/number"
+android:layout_width="match_parent"
+android:layout_height="45dp"
+android:padding="10dp"
+/>
+
+<TextView
+android:id="@+id/textAddress"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Address"/>
+<EditText
+android:id="@+id/address"
+android:layout_width="match_parent"
+android:layout_height="45dp"
+android:padding="10dp"
+/>
+
+<TextView
+android:id="@+id/textCountry"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Country"/>
+<EditText
+android:id="@+id/country"
+android:layout_width="match_parent"
+android:layout_height="45dp"
+android:padding="10dp"
+/>
+
+
+
+        <Button
+android:id="@+id/btnRegister"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_below="@id/country"
+android:layout_marginTop="15dp"
+android:text="Login"/>
+
+</LinearLayout>
+
+
+            <FrameLayout
+        android:id="@+id/mapFrgContainer"
+        android:layout_below="@id/btnRegister"
+        
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/btnShare"
+            android:text="Share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnSMS"
+            android:text="SMS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
 </LinearLayout>

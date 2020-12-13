@@ -60,10 +60,10 @@ namespace RentToGo
             {
                 Intent NewActivity = new Intent(this, typeof(HomeActivity));
 
-                Bundle bundle = new Bundle();
+                /*Bundle bundle = new Bundle();
                 bundle.PutString("name", name);
                 bundle.PutInt("id", id);
-                NewActivity.PutExtra("data", bundle);
+                NewActivity.PutExtra("data", bundle);*/
 
                 StartActivity(NewActivity);
             }
@@ -98,7 +98,7 @@ namespace RentToGo
                 {
                     status = true;
                     id = user.id;
-                    name = user.name;
+                    name = user.username;
                     break;
                 }
             }
