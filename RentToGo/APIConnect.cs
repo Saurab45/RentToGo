@@ -11,7 +11,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 
-namespace Test
+namespace RentToGo
 {
     class APIConnect
     {

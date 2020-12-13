@@ -13,7 +13,7 @@ using Android.Support.Design.Widget;
 namespace RentToGo
 {
     [Activity(Label = "NaviAct")]
-    public class NaviAct : Activity
+    public class NaviAct : Activity,BottomNavigationView.IOnNavigationItemSelectedListener
     {
         [System.Obsolete]
         protected override void OnCreate(Bundle savedInstanceState)
