@@ -1,22 +1,30 @@
-﻿using Android.App;
+using Android.App;
 using Android.Content;
 using Android.OS;
+using System;
 using Android.Runtime;
-using Android.Support.V7.Widget;
+using Android.Support.Design.Widget;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
-using System;
+using AlertDialog = Android.App.AlertDialog;
+using Android.Content;
+
+
+
+using Android.Support.V7.Widget;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using Android.Util;
 using Android.Gms.Common;
-using Test;
+
 
 namespace RentToGo
 {
-    [Activity(Label = "HomeActivity")]
+    [Activity(Label = "Home Activity", Theme = "@style/AppTheme.NoActionBar")]
     public class HomeActivity : Activity
     {
 
@@ -44,12 +52,22 @@ namespace RentToGo
             mRecycleView.SetAdapter(mAdapter);
 
 
-            // Create your application here
         }
-        private void putData()
-        {
+       
            
 
+
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+
+ private void putData()
+        {
             string url = "https://10.0.2.2:5001/api/DataHouse";
             string response = APIConnect.Get(url);
             dList = JsonConvert.DeserializeObject<List<HouseData>>(response);
@@ -58,11 +76,12 @@ namespace RentToGo
 
         private void MAdapter_ItemClick(object sender, int e)
         {
-            int photoNum = e + 1;
-            Toast.MakeText(this, "This is photo number " + photoNum, ToastLength.Short).Show();
+            //int photoNum = e + 1;
+            //Toast.MakeText(this, "This is photo number " + photoNum, ToastLength.Short).Show();
 
-            //Intent i = new Intent(this, typeof(NavigationActivity));
-            //StartActivity(i);
+            Intent i = new Intent(this, typeof(NavigationActivity));
+            StartActivity(i);
         } 
+    }
     }
 }
