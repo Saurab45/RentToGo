@@ -8,9 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Newtonsoft.Json;
-using Android.Util;
-using Android.Gms.Common;
 using Android.Support.V7.Widget;
 
 
