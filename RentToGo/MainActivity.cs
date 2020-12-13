@@ -16,7 +16,7 @@ namespace RentToGo
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            SetContentView(Resource.Layout.activity_main);
+            SetContentView(Resource.Layout.home_act);
 
             Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);

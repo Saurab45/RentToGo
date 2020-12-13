@@ -28,18 +28,18 @@ namespace RentToGo
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            IsPlayServicesAvailable();
-            CreateNotificationChannel();
+            SetContentView(Resource.Layout.home_act);
+            //IsPlayServicesAvailable();
+            //CreateNotificationChannel();
 
             mPhotoAlbum = new Housephoto();
             putData();
             mLayoutManager = new LinearLayoutManager(this);
-
+             
             mAdapter = new HouseAdapter(mPhotoAlbum, dList);
             mAdapter.ItemClick += MAdapter_ItemClick;
 
-            mRecycleView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
+            mRecycleView = FindViewById<RecyclerView>(Resource.Id.recyclerView); 
             mRecycleView.SetLayoutManager(mLayoutManager);
             mRecycleView.SetAdapter(mAdapter);
 
@@ -48,16 +48,9 @@ namespace RentToGo
         }
         private void putData()
         {
-            /*
-            dList.Add(new Data("Database", "This is the database description"));
-            dList.Add(new Data("Programming", "This is the programming description"));
-            dList.Add(new Data("GitHub", "This is the github description"));
-            dList.Add(new Data("Math", "This is Math description"));
-            dList.Add(new Data("MongoDB", "This is MongoDB description"));
-            dList.Add(new Data("C#", "This is a C# description"));
-            */
+           
 
-            string url = "https://10.0.2.2:5001/api/Data";
+            string url = "https://10.0.2.2:5001/api/DataHouse";
             string response = APIConnect.Get(url);
             dList = JsonConvert.DeserializeObject<List<HouseData>>(response);
         }
@@ -68,8 +61,8 @@ namespace RentToGo
             int photoNum = e + 1;
             Toast.MakeText(this, "This is photo number " + photoNum, ToastLength.Short).Show();
 
-            Intent i = new Intent(this, typeof(NavigationActivity));
-            StartActivity(i);
-        }
+            //Intent i = new Intent(this, typeof(NavigationActivity));
+            //StartActivity(i);
+        } 
     }
 }
