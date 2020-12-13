@@ -75,3 +75,4 @@ namespace RentToGo
             mRecycleView.SetAdapter(mAdapter);
         }
     }
+}
