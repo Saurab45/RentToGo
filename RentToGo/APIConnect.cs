@@ -6,17 +6,15 @@ using Android.Views;
 using Android.Widget;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using System.IO;
+using System.Linq;
 using System.Net;
+using System.Text;
 
 namespace RentToGo
 {
-    public class APIConnect
+    class APIConnect
     {
-
         public static bool Post(string url, string json)
         {
             bool response = false;
@@ -31,7 +29,7 @@ namespace RentToGo
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            if (httpResponse.StatusCode == HttpStatusCode.Created)//was OK earlier than Created, did not work
+            if (httpResponse.StatusCode == HttpStatusCode.Created)
             {
                 response = true;
             }
@@ -61,6 +59,9 @@ namespace RentToGo
             }
             return response;
         }
+
+
+
 
     }
 }
