@@ -20,10 +20,10 @@ namespace RentToGo
             {
                 case Resource.Id.customer_profile:
                     tvNavigationText.Text = "customer_profile Clicked";
-                    customerprofileFragment sFrag = new customerprofileFragment();
+                    ProfileActivity sFrag = new ProfileActivity();
                     content_frame.RemoveAllViewsInLayout();
                     transaction = FragmentManager.BeginTransaction();
-                    transaction.Replace(Resource.Id.content_frame, sFrag, "c");
+                    transaction.Replace(Resource.Id.content_frame, sFrag, "customerprofile");
                     transaction.AddToBackStack("customer_profile");
                     transaction.Commit();
                     return true;
