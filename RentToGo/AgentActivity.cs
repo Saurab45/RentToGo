@@ -17,12 +17,12 @@ namespace RentToGo
     public class AgentActivity : Activity
     {
         public const string TAG = "AgentActivity";
-        internal static readonly string CHANNEL_ID = "ICT638Dec2020_Notification_Channel";
+        internal static readonly string CHANNEL_ID = "RentToGo";
 
         RecyclerView mRecycleView;
         RecyclerView.LayoutManager mLayoutManager;
         AgentPhotoAlbum mPhotoAlbum;
-        PhotoAdapter mAdapter;
+        AgentAdapter mAdapter;
         List<Data> dList = new List<Data>();
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -38,5 +38,6 @@ namespace RentToGo
             Intent i = new Intent(this, typeof(bottonNavigationBar));
             StartActivity(i);
         }
+        
     }
 }

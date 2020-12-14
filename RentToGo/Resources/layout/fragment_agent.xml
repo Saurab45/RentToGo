@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+   
 
 <ImageView
         android:layout_alignParentTop="true"
@@ -15,7 +18,7 @@
         android:id="@+id/mapFrgContainer"
         android:layout_below="@id/imgMapFrag"
         android:layout_above="@+id/btnShare"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"/>
 
     <LinearLayout
@@ -24,11 +27,7 @@
         android:orientation="horizontal"
         android:layout_alignParentBottom="true">
 
-          <Button
-            android:id="@+id/btnShowOfficeLoc"
-            android:text="@string/btnShowOfficeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>   
+            
         
       <Button
             android:id="@+id/btnShare"
@@ -42,5 +41,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-    </LinearLayout>
+          <Button
+            android:id="@+id/btnSMSIntent"
+            android:text="SMSIntent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>   
+
+
+  </LinearLayout>
+    
 </RelativeLayout>

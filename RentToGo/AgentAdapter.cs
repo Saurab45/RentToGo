@@ -12,6 +12,7 @@ using Android.Support.V7.Widget;
 
 namespace RentToGo
 {
+
     class Data
     {
         public int id { get; set; }
@@ -24,16 +25,16 @@ namespace RentToGo
             description = d;
         }
     }
-    
-    class PhotoAdapter : RecyclerView.Adapter
+
+    class AgentAdapter : RecyclerView.Adapter
     {
         List<Data> dataList = new List<Data>();
         public event EventHandler<int> ItemClick;
 
         public AgentPhotoAlbum mPhotoAlbum;
-        public PhotoAdapter(AgentPhotoAlbum photoAlbum, List<Data> list)
+        public AgentAdapter(AgentPhotoAlbum AgentphotoAlbum, List<Data> list)
         {
-            mPhotoAlbum = photoAlbum;
+            mPhotoAlbum = AgentphotoAlbum;
             dataList = list;
         }
 
@@ -53,22 +54,21 @@ namespace RentToGo
         {
             View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.agent_recycler, parent, false);
             AgentViewHolder vh = new AgentViewHolder(itemView, OnClick);
-
-            
-
             return vh;
         }
-        
-
-
         private void OnClick(int obj)
         {
             if (ItemClick != null)
                 ItemClick(this, obj);
-        }
-        
-        }
 
+
+
+
+
+
+
+        }
     }
+}
 
-
+  

@@ -20,10 +20,10 @@ namespace RentToGo
             {
                 case Resource.Id.customer_profile:
                     tvNavigationText.Text = "customer_profile Clicked";
-                    ProfileActivity sFrag = new ProfileActivity();
+                    ProfileActivity Text = new ProfileActivity();
                     content_frame.RemoveAllViewsInLayout();
                     transaction = FragmentManager.BeginTransaction();
-                    transaction.Replace(Resource.Id.content_frame, sFrag, "customerprofile");
+                    transaction.Replace(Resource.Id.content_frame, Text, "customerprofile");
                     transaction.AddToBackStack("customer_profile");
                     transaction.Commit();
                     return true;
@@ -56,7 +56,7 @@ namespace RentToGo
             // Create your application here
             SetContentView(Resource.Layout.activity_main);
 
-            bottonNavigationBar  navigationView = FindViewById <bottonNavigationBar> (Resource.Id.bottom_navigation);
+            BottomNavigationView  navigationView = FindViewById <BottomNavigationView> (Resource.Id.bottom_navigation);
             navigationView.SetOnNavigationItemSelectedListener(this);
         }
     }
