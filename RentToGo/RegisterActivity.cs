@@ -23,6 +23,9 @@ namespace RentToGo
 
             // Create your application here
 
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            SetContentView(Resource.Layout.activity_register);
+
             Button btnRegister = FindViewById<Button>(Resource.Id.btnRegister);
             btnRegister.Click += BtnRegister_Click;
 
@@ -75,7 +78,7 @@ namespace RentToGo
 
         public void PostUser(User User)
         {
-            string url = "https://192.168.18.7:5001/api/Users";//my ipv4 ip for device and 10.0.2.2 for emulators
+            string url = "https://10.0.2.2:5001/api/Users";//my ipv4 ip for device and 10.0.2.2 for emulators
 
             string json =
             "{" +
@@ -106,7 +109,7 @@ namespace RentToGo
         private bool checkexist(string uname)
         {
             bool status = true;
-            string url = "https://192.168.18.7/api/Users";
+            string url = "https://10.0.2.2/api/Users";
             string response = APIConnect.Get(url);
             List<User> users = JsonConvert.DeserializeObject<List<User>>(response);
 

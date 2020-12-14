@@ -45,6 +45,11 @@ namespace RentToGo
             btnRegister.Click += BtnRegister_Click;
         }
 
+        public static string uname;
+        public static string upass;
+        public static string uemail;
+
+        
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
@@ -52,7 +57,11 @@ namespace RentToGo
             EditText edUserName = FindViewById<EditText>(Resource.Id.edUserName);
             EditText edPassword = FindViewById<EditText>(Resource.Id.edPassword);
 
-            string uname = edUserName.Text.Trim();
+
+
+            uname = edUserName.Text.Trim();
+            upass = edUserName.Text.Trim();
+            //uname = User.email.Text.Trim();
             string pass = edPassword.Text.Trim();
             string name;
             int id;
@@ -60,10 +69,17 @@ namespace RentToGo
             {
                 Intent NewActivity = new Intent(this, typeof(HomeActivity));
 
-                /*Bundle bundle = new Bundle();
-                bundle.PutString("name", name);
-                bundle.PutInt("id", id);
-                NewActivity.PutExtra("data", bundle);*/
+                Bundle bundle = new Bundle();
+
+                check(uname, upass);
+
+                bundle.PutString("uname", uname);
+                bundle.PutString("upass", upass);
+                bundle.PutString("uemail", uemail);
+
+
+
+                NewActivity.PutExtra("data", bundle);
 
                 StartActivity(NewActivity);
             }
@@ -87,7 +103,7 @@ namespace RentToGo
         private bool checkLogin(string uname, string pass, out int id, out string name)
         {
             bool status = false;
-            string url = "https://192.168.18.7/api/Users";
+            string url = "https://10.0.2.2/api/Users";
             string response = APIConnect.Get(url);
             List<User> users = JsonConvert.DeserializeObject<List<User>>(response);
             id = 0;
@@ -99,6 +115,30 @@ namespace RentToGo
                     status = true;
                     id = user.id;
                     name = user.username;
+                    break;
+                }
+            }
+
+            return status;
+        }
+
+
+        private bool check(string upname, string uppass)
+        {
+            bool status = true;
+            string url = "https://10.0.2.2/api/Users";
+            string response = APIConnect.Get(url);
+            List<User> users = JsonConvert.DeserializeObject<List<User>>(response);
+
+            foreach (User user in users)
+            {
+                if (user.username == upname && user.password == uppass)
+                {
+                    status = true;
+
+                    uname = user.username;
+                    upass = user.password;
+                    uemail = user.email;
                     break;
                 }
             }

@@ -7,155 +7,164 @@
 
 <LinearLayout
 android:layout_width="match_parent"
-android:layout_height="wrap_content"
+android:layout_height="450dp"
 android:layout_margin="10dp"
 android:orientation="vertical">
 
 
-<TextView
-android:id="@+id/UserName"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="UserName"/>
-<EditText
-android:id="@+id/username"
-android:layout_width="match_parent"
-android:layout_height="45dp"
-android:padding="10dp"
-/>
-
-
-<TextView
-android:id="@+id/textPassword"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="Password"/>
-
-
-<EditText
-android:id="@+id/password"
-android:layout_width="match_parent"
-android:layout_height="45dp"
-android:padding="10dp"
-android:inputType="textPassword"/>
 
 
 
-<TextView
-android:id="@+id/textEmail"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="Email"/>
-
-
-<EditText
-android:id="@+id/email"
-android:layout_width="match_parent"
-android:layout_height="45dp"
-android:padding="10dp"
-/>
 
 
 
 <TextView
 android:id="@+id/textfirstName"
-android:layout_width="wrap_content"
+android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:text="First Name"/>
 <EditText
 android:id="@+id/firstname"
 android:layout_width="match_parent"
-android:layout_height="45dp"
+android:layout_height="wrap_content"
 android:padding="10dp"
 />
 
 <TextView
 android:id="@+id/textlastName"
-android:layout_width="wrap_content"
+android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:text="Last Name"/>
 <EditText
 android:id="@+id/lastname"
 android:layout_width="match_parent"
-android:layout_height="45dp"
+android:layout_height="wrap_content"
 android:padding="10dp"
 />
 
 <TextView
 android:id="@+id/textNumber"
-android:layout_width="wrap_content"
+android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:text="Phone Number"/>
 <EditText
 android:id="@+id/number"
 android:layout_width="match_parent"
-android:layout_height="45dp"
+android:layout_height="wrap_content"
 android:padding="10dp"
 />
 
 <TextView
 android:id="@+id/textAddress"
-android:layout_width="wrap_content"
+android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:text="Address"/>
 <EditText
 android:id="@+id/address"
 android:layout_width="match_parent"
-android:layout_height="45dp"
+android:layout_height="wrap_content"
 android:padding="10dp"
 />
 
 <TextView
 android:id="@+id/textCountry"
-android:layout_width="wrap_content"
+android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:text="Country"/>
 <EditText
 android:id="@+id/country"
 android:layout_width="match_parent"
-android:layout_height="45dp"
+android:layout_height="wrap_content"
 android:padding="10dp"
 />
 
 
 
-        <Button
-android:id="@+id/btnRegister"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:layout_below="@id/country"
-android:layout_marginTop="15dp"
-android:text="Login"/>
-
 </LinearLayout>
 
 
-            <FrameLayout
-        android:id="@+id/mapFrgContainer"
-        android:layout_below="@id/btnRegister"
-        
+
+
+                <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:layout_below="@id/country"
+        android:weightSum="2">
+
+
+        <Button
+        android:id="@+id/btnUpdate"
+        android:text="Update"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        
+        android:layout_weight="1"
+        />
+
+
+                <Button
+        android:id="@+id/btnCancel"
+        android:text="Cancel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        
+        android:layout_weight="1"
+        />
+
+
+
+    </LinearLayout>
+
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:weightSum="4">
+
+
+                    <FrameLayout
+        android:id="@+id/mapFrgContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"/>
+
+
+
+
+            <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="2dp"
+        android:layout_weight="1"
+            android:weightSum="2">
+
+
 
         <Button
             android:id="@+id/btnShare"
             android:text="Share"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"/>
 
         <Button
             android:id="@+id/btnSMS"
             android:text="SMS"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"/>
 
-
+    </LinearLayout>
 
 
 
@@ -172,3 +181,4 @@ android:text="Login"/>
 
 
 </LinearLayout>
+
