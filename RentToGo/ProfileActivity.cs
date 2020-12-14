@@ -55,7 +55,12 @@ namespace RentToGo
 
 
             Toast.MakeText(this, "Edit profile for " + usname, ToastLength.Long).Show();
-            
+
+
+            FrameLayout mapFrgContainer = FindViewById<FrameLayout>(Resource.Id.mapFrgContainer);
+            ProfileFragment mFrag = new ProfileFragment();
+            mapFrgContainer.RemoveAllViewsInLayout();
+
 
         }
 
